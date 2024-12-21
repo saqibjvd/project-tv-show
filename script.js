@@ -9,5 +9,4 @@ async function setup() {
   searchEpisode(allEpisodes);
 }
 
-
 window.onload = setup;

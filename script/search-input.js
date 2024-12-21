@@ -1,4 +1,6 @@
+
 import {render } from "./render-episode.js";
+
 
 export const searchEpisode = (allEpisodes) => {
   const episodesContainer = document.querySelector(".episodes-container");
@@ -34,11 +36,13 @@ export const searchEpisode = (allEpisodes) => {
         );
       });
 
+
       resultCount.textContent = `${filteredEpisodes.length} episode(s) match your search.`;
     }
 
     episodesContainer.innerHTML = "";
 
    render(filteredEpisodes);
+
   });
 };
