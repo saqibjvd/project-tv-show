@@ -1,4 +1,7 @@
-import {render } from "./render-episode.js";
+import {renderEpisode } from "./render.js";
+import { fetchEpisodes } from "./Api.js";
+
+// Level 200 Search input
 
 export const searchEpisode = (allEpisodes) => {
   const episodesContainer = document.querySelector(".episodes-container");
@@ -39,6 +42,16 @@ export const searchEpisode = (allEpisodes) => {
 
     episodesContainer.innerHTML = "";
 
-   render(filteredEpisodes);
+    renderEpisode(filteredEpisodes);
   });
 };
+
+export const selectedShow = () => {
+  const showsDropDown = document.getElementById("show-selector");
+  showsDropDown.addEventListener("change", async (e) =>{
+    const selectedShow = e.target.value
+    const newEpisode = await fetchEpisodes(selectedShow)
+    renderEpisode(newEpisode)
+    searchEpisode(newEpisode)
+  } )
+}
