@@ -1,5 +1,6 @@
-export function render(episodeList) {
+export function renderEpisode(episodeList) {
     let episodesContainer = document.querySelector(".episodes-container");
+    episodesContainer.innerHTML = "";
     episodeList.forEach((episode) => {
       const { name, season, number, image, summary } = episode;
   
