@@ -1,20 +1,23 @@
 
-import { fetchEpisodes, fetchShows } from "./script/Api.js";
-import { searchEpisode } from "./script/search-input.js";
 import { htmlElements } from "./script/htmlElements.js";
-import {renderEpisode} from "./script/render.js"
-import { selectedShow } from "./script/search-input.js";
+
+import { fetchShows, fetchEpisodes } from "./script/api.js";
+import { renderEpisodes } from "./script/render.js";
+import { searchEpisode, selectedShow } from "./script/search-episode.js";
 
 async function setup() {
-  const allShows = await fetchShows()
+  // Fetch and render shows
+  const allShows = await fetchShows();
   htmlElements(allShows);
-  const showsId = allShows[0].id
-  const allEpisodes = await fetchEpisodes(showsId);
-  renderEpisode(allEpisodes)
-  searchEpisode(allEpisodes);
-  selectedShow()
-}
 
+
+  // Fetch and render episodes for the default show
+  const defaultShowId = allShows[0].id;
+  const allEpisodes = await fetchEpisodes(defaultShowId);
+  renderEpisodes(allEpisodes);
+  searchEpisode(allEpisodes);
+  selectedShow();
+}
 
 
 window.onload = setup;
