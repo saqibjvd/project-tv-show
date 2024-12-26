@@ -1,5 +1,5 @@
 import {renderEpisode } from "./render.js";
-import { fetchEpisodes } from "./Api.js";
+import { fetchEpisodes } from "./api.js";
 
 // Level 200 Search input
 
