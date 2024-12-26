@@ -1,6 +1,7 @@
 export const htmlElements = (shows) => {
   const rootElem = document.getElementById("root");
 
+
   // Create header
   const header = document.createElement("header");
   header.className = "header";

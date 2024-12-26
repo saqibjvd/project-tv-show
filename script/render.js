@@ -1,3 +1,4 @@
+
 export function renderEpisodes(episodeList) {
   let episodesContainer = document.querySelector(".episodes-container");
   episodesContainer.innerHTML = "";
@@ -31,3 +32,4 @@ export function renderEpisodes(episodeList) {
     episodesContainer.insertAdjacentHTML("beforeend", markup);
   });
 }
+
