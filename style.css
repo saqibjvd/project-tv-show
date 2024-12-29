@@ -54,6 +54,7 @@ header a {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 20px;
+  display: none;
 }
 .search-results {
   display: flex;
@@ -125,6 +126,24 @@ header a {
 
 a {
   color: #0073e6;
+}
+
+
+
+
+/* Style the back button */
+#back-button {
+  margin: 20px;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+#back-button:hover {
+  background-color: #0056b3;
 }
 
 @media (max-width: 768px) {
