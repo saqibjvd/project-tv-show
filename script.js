@@ -3,7 +3,8 @@ import { htmlElements } from "./script/htmlElements.js";
 
 import { fetchShows, fetchEpisodes } from "./script/api.js";
 import { renderEpisodes, renderShows } from "./script/render.js";
-import { searchEpisode, selectedShow } from "./script/search-episode.js";
+import { searchContent, selectedShow } from "./script/search-episode.js";
+import { backToShowsButton } from "./script/search-episode.js";
 
 async function setup() {
   // Fetch and render shows
@@ -15,8 +16,9 @@ async function setup() {
   renderShows(allShows)
 
   // renderEpisodes(allEpisodes);
-  searchEpisode(allShows);
-  selectedShow();
+  searchContent(allShows, renderShows, "search Shows...");
+  selectedShow(allShows);
+  backToShowsButton(allShows, renderShows); 
 }
 
 

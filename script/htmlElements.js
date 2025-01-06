@@ -19,6 +19,10 @@ export const htmlElements = (shows) => {
   const showSelector = document.createElement("select");
   showSelector.id = "show-selector";
   section1.appendChild(showSelector);
+  const defaultOption = document.createElement("option");
+  defaultOption.value = "";
+  defaultOption.textContent = "Select a show";
+  showSelector.appendChild(defaultOption);
 
   // Populate dropdown with shows
   shows.forEach((show) => {

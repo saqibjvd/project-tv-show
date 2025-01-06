@@ -1,4 +1,5 @@
 import { fetchEpisodes } from "./api.js";
+import { searchContent } from "./search-episode.js";
 
 export function renderEpisodes(episodeList) {
   let episodesContainer = document.querySelector(".episodes-container");
@@ -64,18 +65,18 @@ export function renderEpisodes(episodeList) {
 
   const loadEpisodesForShow = async (showId) => {
     const allEpisodes = await fetchEpisodes(showId);
+    searchContent(allEpisodes, renderEpisodes, "Search Episode...");
     renderEpisodes(allEpisodes);
 
     const episodesContainer = document.querySelector(".episodes-container");
     const showsContainer = document.getElementById("shows-container");
     const backButton = document.getElementById("back-button");
-
+    document.getElementById("show-selector").style.display = "none";
     episodesContainer.style.display = "grid"; // Show episodes view
     showsContainer.style.display = "none"; // Hide the shows list
 
   // Show the back button
     backButton.style.display = "inline-block"; // Show back button
 
-    // document.querySelector(".episodes-container").style.display = "grid";
-    // document.getElementById("shows-container").style.display = "none";
+   
   } 
